@@ -129,7 +129,6 @@ public class BSTNode {
     }
 
     public void delete(int number, BSTNode parent) {
-        //
 
         if (parent == null && number == this.number) {
             BSTNode auxRoot = new BSTNode(0);
@@ -223,30 +222,23 @@ public class BSTNode {
             int leftLeftDepth = 0, leftRightDepth = 0, rightLeftDepth = 0, rightRightDepth = 0;
             int leftDepth = (left == null) ? 0 : left.depth();
             int rightDepth = (right == null) ? 0 : right.depth();
-            
-            if (leftDepth > rightDepth){
+
+            if (leftDepth > rightDepth) {
                 leftLeftDepth = (left.left == null) ? 0 : left.left.depth();
                 leftRightDepth = (left.right == null) ? 0 : left.right.depth();
-                
-                if (leftLeftDepth > leftRightDepth){
-                    return this.rotateRight();
-                }
-                else {
+
+                if (leftLeftDepth < leftRightDepth) {
                     left = left.rotateLeft();
-                    return this.rotateRight();
                 }
-            }
-            else {
+                return this.rotateRight();
+            } else {
                 rightLeftDepth = (right.left == null) ? 0 : right.left.depth();
                 rightRightDepth = (right.right == null) ? 0 : right.right.depth();
-                
-                if (rightRightDepth > rightLeftDepth){
+
+                if (rightRightDepth < rightLeftDepth) {
                     right = right.rotateRight();
-                    return this.rotateLeft();
                 }
-                else {
-                    return this.rotateLeft();
-                }
+                return this.rotateLeft();
             }
         }
         return this;

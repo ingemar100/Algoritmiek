@@ -158,14 +158,18 @@ public class BST {
         tree.prettyPrint(); // Prints the values in order
         System.out.println();
         
-        tree.insertAVL(50);
-        tree.insertAVL(2);
-        tree.insertAVL(7);
-        tree.insertAVL(94);
-        tree.insertAVL(24);
-        tree.insertAVL(71);
-        tree.insertAVL(30);
-        tree.insertAVL(49);
+//        tree.insertAVL(50);
+//        tree.insertAVL(2);
+//        tree.insertAVL(7);
+//        tree.insertAVL(94);
+//        tree.insertAVL(24);
+//        tree.insertAVL(71);
+//        tree.insertAVL(30);
+//        tree.insertAVL(49);
+        
+        for (int i = 1; i < 100; i ++){
+            tree.insertAVL(i);
+        }
         System.out.println("Count: " + tree.count()); // Should be 8
         System.out.println("Min: " + tree.min()); // Should be 2
         System.out.println("Max: " + tree.max()); // Should be 94
